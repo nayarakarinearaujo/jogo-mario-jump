@@ -1,0 +1,114 @@
+/* Define estilos para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define estilos para o tabuleiro do jogo */
+.game-board {
+    width: 100;
+    /* Largura do tabuleiro (deve ser ajustada para uma unidade de medida válida, como pixels ou porcentagem) */
+    height: 600px;
+    /* Altura do tabuleiro */
+    border-bottom: 10px solid rgb(35, 160, 35);
+    /* Borda inferior do tabuleiro */
+    margin: 0 auto;
+    /* Centraliza o tabuleiro horizontalmente */
+    position: relative;
+    /* Define a posição como relativa para os elementos filhos */
+    overflow: hidden;
+    /* Oculta conteúdo excedente */
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    /* Fundo do tabuleiro */
+}
+
+/* Define estilos para os canos */
+.pipe {
+    position: absolute;
+    /* Define a posição absoluta para os canos */
+    bottom: 0;
+    /* Alinha os canos ao fundo do tabuleiro */
+    width: 80px;
+    /* Largura dos canos */
+    animation: pipe-animation 1.5s infinite linear;
+    /* Animação dos canos */
+}
+
+/* Define estilos para o Mario */
+.mario {
+    width: 150px;
+    /* Largura do Mario */
+    position: absolute;
+    /* Define a posição absoluta para o Mario */
+    bottom: 0;
+    /* Alinha o Mario ao fundo do tabuleiro */
+}
+
+/* Define a animação para o salto do Mario */
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+/* Define estilos para as nuvens */
+.clouds {
+    position: absolute;
+    /* Define a posição absoluta para as nuvens */
+    width: 550px;
+    /* Largura das nuvens */
+    animation: clouds-animation 20s infinite linear;
+    /* Animação das nuvens */
+}
+
+/* Define a animação para a movimentação dos canos */
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+        /* Posição inicial dos canos (fora do tabuleiro) */
+    }
+
+    to {
+        right: 100%;
+        /*Posição final dos canos (dentro do tabuleiro) */
+    }
+}
+
+/* Define a animação para o salto do Mario */
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+        /* Posição inicial do Mario */
+    }
+
+    50% {
+        bottom: 180px;
+        /* Posição máxima do salto do Mario */
+    }
+
+    60% {
+        bottom: 180px;
+        /* Mantém a posição máxima do salto do Mario */
+    }
+
+    100% {
+        bottom: 0;
+        /* Posição final do Mario (após o salto) */
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+        /* Posição inicial das nuvens (fora do tabuleiro) */
+    }
+
+    to {
+        right: 100%;
+    }
+
+}
+
